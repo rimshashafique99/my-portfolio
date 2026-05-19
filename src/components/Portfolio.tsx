@@ -227,7 +227,7 @@ export function Hero() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-      className="pt-48 pb-20 px-6 md:px-12 flex flex-col items-center text-center max-w-7xl mx-auto"
+      className="pt-40 pb-20 px-6 md:px-12 flex flex-col items-center text-center max-w-7xl mx-auto"
     >
       <div className="max-w-4xl w-full flex flex-col items-center">
         <motion.div
@@ -558,12 +558,11 @@ export function Experience() {
       role: "MERN Stack Developer",
       duration: "July 2025 – Present",
       achievements: [
-        "99min: Built full backend from scratch for a task marketplace with layered architecture, JWT auth (OTP/RBAC), and real-time Socket.IO chat/notifications.",
-        "Integrated cron-based task expiry systems and end-to-end Stripe subscription billing with webhook signature verification.",
-        "Unflappable: Implemented dual authentication (Email OTP + Apple Sign In) and core mission engine handling daily missions and streak calculations.",
-        "Integrated Firebase FCM for timezone-aware push notifications and Apple IAP for in-app purchase management.",
-        "Rent AI: Developed full-stack property management platform for landlords, improving booking efficiency by 40%.",
-        "TalkType AI: Built multi-language audio-to-text SaaS with AI API integration and Stripe subscription billing."
+        "Built and shipped backend systems for multiple client products across web and mobile platforms:",
+"99min — Architected the full backend for a task marketplace from scratch, implementing a layered service structure, JWT-based auth with OTP and RBAC, real-time Socket.IO chat and notifications, cron-based task expiry, and end-to-end Stripe subscription billing with webhook signature verification.",
+"Unflappable — Built the core authentication system (Email OTP + Apple Sign In) and mission engine powering daily missions and streak logic; integrated Firebase FCM for timezone-aware push notifications and Apple IAP for in-app purchase management.",
+"Rent AI — Developed a full-stack property management platform for landlords covering tenant tracking and rent scheduling, improving booking efficiency by 40%.",
+"TalkType AI — Built a multi-language audio-to-text SaaS product with AI API integration and Stripe subscription billing."
       ]
     },
     {
@@ -670,7 +669,7 @@ export function About() {
               >
                 <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 opacity-40 dark:text-white/60">Background</h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                  With nearly 1 year of hands-on experience in production environments, I have delivered features end-to-end, 
+                  With 1+ year of hands-on experience in production environments, I have delivered features end-to-end, 
                   collaborating with cross-functional teams to translate complex needs into maintainable code.
                 </p>
               </motion.div>
@@ -698,7 +697,7 @@ export function Contact() {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
-    <section id="connect" className="py-48 px-12 md:px-24">
+    <section id="connect" className="py-15 px-12 md:px-24">
       <ContactForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
       <div className="max-w-4xl mx-auto text-center">
         <motion.div 
@@ -745,7 +744,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="px-6 md:px-24 py-20 bg-[#FDFDFC] dark:bg-[#0A0A0A] border-t border-black/5 dark:border-white/5">
+    <footer className="px-6 md:px-24 py-3 bg-[#FDFDFC] dark:bg-[#0A0A0A] border-t border-black/5 dark:border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           {/* Left Side: Name and Copyright */}
