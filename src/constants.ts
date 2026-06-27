@@ -3,53 +3,52 @@ import { Project, Technology } from './types';
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: '99min',
-    description: 'A robust task marketplace featuring a layered architecture, real-time in-app chat via Socket.IO, and automated task expiry systems.',
-    technologies: ['Node.js', 'Express', 'Socket.IO', 'Stripe', 'JWT'],
-    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2000&auto=format&fit=crop',
-    liveUrl: '#',
-    repoUrl: '#',
-    category: 'Full Stack'
-  },
-  {
-    id: '2',
-    title: 'Unflappable',
-    description: 'Mission-driven platform with dual authentication (Apple/OTP), timezone-aware push notifications, and integrated Apple In-App Purchases.',
-    technologies: ['React Native', 'Firebase', 'Apple IAP', 'Node.js'],
-    imageUrl: 'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=2000&auto=format&fit=crop',
-    liveUrl: '#',
-    repoUrl: '#',
-    category: 'Mobile'
-  },
-  {
-    id: '3',
-    title: 'Rent AI',
-    description: 'Comprehensive property management platform for landlords, streamlining tenant tracking and rent scheduling, improving efficiency by 40%.',
-    technologies: ['Next.js', 'PostgreSQL', 'Tailwind CSS', 'Supabase'],
-    imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000&auto=format&fit=crop',
-    liveUrl: '#',
-    repoUrl: '#',
-    category: 'Web'
-  },
-  {
-    id: '4',
-    title: 'TalkType AI',
-    description: 'Multi-language audio-to-text SaaS integration with AI APIs for transcription and Stripe subscription management.',
-    technologies: ['React', 'AI API', 'Stripe', 'Node.js'],
-    imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2000&auto=format&fit=crop',
-    liveUrl: '#',
-    repoUrl: '#',
+    title: 'AI Job Copilot',
+    description: 'An AI-powered job-search assistant that automates the application workflow — generating tailored resumes and cover letters with AI and tracking every application from a single dashboard.',
+    technologies: ['Next.js', 'TypeScript', 'AI API', 'Tailwind CSS'],
+    imageUrl: '/projects/ai-job-copilot.png',
+    liveUrl: 'https://ai-job-copilot-red.vercel.app',
+    repoUrl: 'https://github.com/rimshashafique99/ai-job-copilot',
     category: 'AI'
   },
   {
+    id: '2',
+    title: 'Morphix',
+    description: 'A Next.js character studio where users customize 3D-rendered avatars by choosing characters, poses, and backgrounds, then preview and export stylized images straight from the dashboard.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+    imageUrl: '/projects/morphix.png',
+    liveUrl: 'https://morphix-3d.vercel.app/',
+    repoUrl: 'https://github.com/rimshashafique99/morphix',
+    category: 'Web'
+  },
+  {
+    id: '3',
+    title: '99min',
+    description: 'A real-time task marketplace where users post short gigs and get them done fast. Built on a layered Node.js architecture with Socket.IO live chat, Stripe-powered payments, and an automated task-expiry engine that keeps listings fresh.',
+    technologies: ['Node.js', 'Express', 'Socket.IO', 'Stripe', 'JWT'],
+    imageUrl: '/projects/99min.png',
+    imageFit: 'cover',
+    imagePosition: 'left center',
+    liveUrl: 'https://99min-frontend-one.vercel.app/',
+    category: 'Full Stack'
+  },
+  {
+    id: '4',
+    title: 'Unflappable',
+    description: 'A clean, scalable Node.js backend powering the Unflappable wellness app — handling Apple and OTP authentication, timezone-aware push notifications, mission progress tracking, and Apple In-App Purchase subscriptions.',
+    technologies: ['Node.js', 'Express', 'Apple IAP', 'JWT'],
+    imageUrl: '/projects/unflappable.png',
+    imageFit: 'contain',
+    repoUrl: 'https://github.com/rimshashafique99/unflappable_app_backend',
+    category: 'Backend'
+  },
+  {
     id: '5',
-    title: 'Cosmetic Recommender',
-    description: 'E-commerce platform featuring a user review-based recommendation system designed to enhance user selection accuracy.',
-    technologies: ['PHP', 'MySQL', 'JavaScript', 'HTML/CSS'],
-    imageUrl: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=2000&auto=format&fit=crop',
-    liveUrl: '#',
-    repoUrl: '#',
-    category: 'E-Commerce'
+    title: 'TalkType AI',
+    description: 'A multi-language speech-to-text SaaS that turns audio into accurate transcripts using AI APIs, with Stripe-managed subscription tiers and a smooth upload-to-text workflow.',
+    technologies: ['React', 'AI API', 'Stripe', 'Node.js'],
+    imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2000&auto=format&fit=crop',
+    category: 'AI'
   }
 ];
 

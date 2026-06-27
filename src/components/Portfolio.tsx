@@ -329,8 +329,9 @@ export function Hero() {
 }
 
 export function ProjectCard({ project, index }: { project: Project, index: number }) {
+  const [imageFailed, setImageFailed] = useState(false);
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -340,19 +341,29 @@ export function ProjectCard({ project, index }: { project: Project, index: numbe
       <div className="text-[10px] font-mono opacity-40 dark:opacity-60 absolute left-0 top-12 hidden lg:block">0{index + 1}</div>
       
       {/* Project Image with Subtle Parallax/Zoom */}
-      <div className="w-full md:w-64 lg:w-80 h-44 md:h-48 lg:h-56 overflow-hidden bg-gray-100 dark:bg-gray-900 flex-shrink-0 relative lg:group-hover:shadow-2xl transition-shadow duration-500 rounded-lg">
-        <motion.img 
-          src={project.imageUrl} 
-          alt={project.title}
-          initial={{ scale: 1.1 }}
-          whileHover={{ 
-            scale: 1.15,
-            y: -5,
-            transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] }
-          }}
-          className="w-full h-full object-cover grayscale lg:group-hover:grayscale-0 transition-all duration-700"
-          referrerPolicy="no-referrer"
-        />
+      <div className={`w-full md:w-64 lg:w-80 h-44 md:h-48 lg:h-56 overflow-hidden flex-shrink-0 relative lg:group-hover:shadow-2xl transition-shadow duration-500 rounded-lg ${project.imageFit === 'contain' ? 'bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-800 dark:to-gray-950 p-3' : 'bg-gray-100 dark:bg-gray-900'}`}>
+        {imageFailed ? (
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
+            <span className="text-xs font-mono uppercase tracking-widest opacity-40 dark:text-white px-4 text-center">
+              {project.title}
+            </span>
+          </div>
+        ) : (
+          <motion.img
+            src={project.imageUrl}
+            alt={project.title}
+            onError={() => setImageFailed(true)}
+            style={{ objectPosition: project.imagePosition }}
+            initial={{ scale: project.imageFit === 'contain' ? 1 : 1.1 }}
+            whileHover={{
+              scale: project.imageFit === 'contain' ? 1.05 : 1.15,
+              y: -5,
+              transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] }
+            }}
+            className={`w-full h-full grayscale lg:group-hover:grayscale-0 transition-all duration-700 ${project.imageFit === 'contain' ? 'object-contain rounded-md' : 'object-cover'}`}
+            referrerPolicy="no-referrer"
+          />
+        )}
       </div>
 
       <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
@@ -375,22 +386,28 @@ export function ProjectCard({ project, index }: { project: Project, index: numbe
       </div>
       
       <div className="flex gap-4 mt-6 md:mt-2">
-        <a 
-          href={project.liveUrl || "#"} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-14 h-14 rounded-full border border-black dark:border-white flex items-center justify-center lg:hover:bg-black dark:lg:hover:bg-white lg:hover:text-white dark:lg:hover:text-black transition-all group/btn"
-        >
-          <ArrowUpRight size={18} className="lg:group-hover/btn:translate-x-0.5 lg:group-hover/btn:-translate-y-0.5 transition-transform" />
-        </a>
-        <a 
-          href={project.repoUrl || "#"} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-14 h-14 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center lg:hover:bg-black dark:lg:hover:bg-white lg:hover:text-white dark:lg:hover:text-black transition-all"
-        >
-          <Github size={18} />
-        </a>
+        {project.liveUrl && project.liveUrl !== '#' && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.title} live`}
+            className="w-14 h-14 rounded-full border border-black dark:border-white flex items-center justify-center lg:hover:bg-black dark:lg:hover:bg-white lg:hover:text-white dark:lg:hover:text-black transition-all group/btn"
+          >
+            <ArrowUpRight size={18} className="lg:group-hover/btn:translate-x-0.5 lg:group-hover/btn:-translate-y-0.5 transition-transform" />
+          </a>
+        )}
+        {project.repoUrl && project.repoUrl !== '#' && (
+          <a
+            href={project.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.title} source on GitHub`}
+            className="w-14 h-14 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center lg:hover:bg-black dark:lg:hover:bg-white lg:hover:text-white dark:lg:hover:text-black transition-all"
+          >
+            <Github size={18} />
+          </a>
+        )}
       </div>
     </motion.div>
   );

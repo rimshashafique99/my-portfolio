@@ -4,6 +4,8 @@ export interface Project {
   description: string;
   technologies: string[];
   imageUrl: string;
+  imageFit?: 'cover' | 'contain';
+  imagePosition?: string;
   liveUrl?: string;
   repoUrl?: string;
   category: 'Web' | 'Mobile' | 'Backend' | 'AI' | 'DevOps' | 'Full Stack' | 'E-Commerce';
