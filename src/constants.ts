@@ -1,11 +1,11 @@
-import { Project, Technology } from './types';
+import { Project, Technology, Testimonial } from './types';
 
 export const PROJECTS: Project[] = [
   {
     id: '1',
     title: 'AI Job Copilot',
-    description: 'An AI-powered job-search assistant that automates the application workflow — generating tailored resumes and cover letters with AI and tracking every application from a single dashboard.',
-    technologies: ['Next.js', 'TypeScript', 'AI API', 'Tailwind CSS'],
+    description: 'An AI-powered job-search assistant that automates the application workflow generating tailored resumes and cover letters with AI and tracking every application from a single dashboard.',
+    technologies: ['React.js', 'TypeScript', 'AI API', 'Tailwind CSS'],
     imageUrl: '/projects/ai-job-copilot.png',
     liveUrl: 'https://ai-job-copilot-red.vercel.app',
     repoUrl: 'https://github.com/rimshashafique99/ai-job-copilot',
@@ -14,11 +14,22 @@ export const PROJECTS: Project[] = [
   {
     id: '2',
     title: 'Morphix',
-    description: 'A Next.js character studio where users customize 3D-rendered avatars by choosing characters, poses, and backgrounds, then preview and export stylized images straight from the dashboard.',
+    description: 'A Next.js character studio where users customize playful 3D characters — choosing avatars, poses, and backgrounds — then preview and export high-resolution PNGs straight from the dashboard.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     imageUrl: '/projects/morphix.png',
     liveUrl: 'https://morphix-3d.vercel.app/',
     repoUrl: 'https://github.com/rimshashafique99/morphix',
+    category: 'Web'
+  },
+  {
+    id: '6',
+    title: 'DevNDev',
+    description: 'A multi-page agency website built in Next.js — fully responsive, with service, team, and contact pages, an animated technology marquee, and a testimonial carousel. Built for premium design and performance.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Vercel'],
+    imageUrl: '/projects/devndev.png',
+    imageFit: 'cover',
+    imagePosition: 'top center',
+    liveUrl: 'https://dev-n-dev-work.vercel.app/',
     category: 'Web'
   },
   {
@@ -35,7 +46,7 @@ export const PROJECTS: Project[] = [
   {
     id: '4',
     title: 'Unflappable',
-    description: 'A clean, scalable Node.js backend powering the Unflappable wellness app — handling Apple and OTP authentication, timezone-aware push notifications, mission progress tracking, and Apple In-App Purchase subscriptions.',
+    description: 'A clean, scalable Node.js backend powering the Unflappable wellness app handling Apple and OTP authentication, timezone-aware push notifications, mission progress tracking, and Apple In-App Purchase subscriptions.',
     technologies: ['Node.js', 'Express', 'Apple IAP', 'JWT'],
     imageUrl: '/projects/unflappable.png',
     imageFit: 'contain',
@@ -90,4 +101,14 @@ export const TECHNOLOGIES: Technology[] = [
   { name: 'Vercel', category: 'Cloud & Tools', icon: 'Cloud' },
   { name: 'Render', category: 'Cloud & Tools', icon: 'Cloud' },
   { name: 'Railway', category: 'Cloud & Tools', icon: 'Cloud' },
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote: "I had the pleasure of working with Rimsha on a web application project, and she consistently demonstrated strong technical expertise and professionalism. She has a solid understanding of modern web technologies including React, Next.js, Node.js, and TypeScript, and she's reliable, detail-oriented, and communicates effectively. She approaches challenges with a problem-solving mindset and delivers high-quality, scalable solutions. I highly recommend her to anyone looking for a skilled Full-Stack Software Engineer.",
+    name: 'Faseeh Hayat',
+    title: 'Full-Stack Developer | Building Scalable SaaS Products',
+    context: 'Client — DevNDev project',
+    link: 'https://dev-n-dev-work.vercel.app/'
+  }
 ];

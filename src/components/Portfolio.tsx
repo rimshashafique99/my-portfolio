@@ -5,7 +5,7 @@ import {
   Server, Layers, Zap, Brain, Code2, Globe, Navigation, Database, Box, Cloud, Terminal,
   Sun, Moon, Menu, X
 } from 'lucide-react';
-import { Project, Technology } from '../types';
+import { Project, Technology, Testimonial } from '../types';
 import { ThemeToggle } from './ThemeToggle';
 import { AnimatePresence } from 'motion/react';
 import { ContactForm } from './ContactForm';
@@ -19,7 +19,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const sections = ['overview', 'projects', 'expertise', 'about', 'connect'];
+    const sections = ['overview', 'projects', 'expertise', 'experience', 'testimonials', 'about', 'connect'];
     const observers = sections.map(id => {
       const element = document.getElementById(id);
       if (!element) return null;
@@ -45,7 +45,7 @@ export function Navbar() {
     };
   }, []);
 
-  const navItems = ['Overview', 'Projects', 'Expertise', 'Experience', 'About', 'Connect'];
+  const navItems = ['Overview', 'Projects', 'Expertise', 'Experience', 'Testimonials', 'About', 'Connect'];
 
   const scrollToSection = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
@@ -236,7 +236,7 @@ export function Hero() {
           transition={{ delay: 0.1 }}
           className="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase opacity-40 mb-8 dark:text-white"
         >
-          Full-Stack Developer
+          Full-Stack Engineer
         </motion.div>
 
         <motion.h1 
@@ -271,7 +271,7 @@ export function Hero() {
           transition={{ delay: 0.2 }}
           className="text-lg md:text-xl leading-relaxed opacity-80 dark:opacity-60 max-w-2xl mb-8 dark:text-white"
         >
-          Skilled in building production SaaS products, understanding business journeys, and delivering practical, high-impact solutions through scalable, maintainable full-stack code.
+          I build and ship production SaaS and MVPs end-to-end, backend architecture, APIs, integrations, and deployment.
         </motion.p>
 
         <motion.div 
@@ -571,11 +571,21 @@ export function Capabilities() {
 export function Experience() {
   const experiences = [
     {
-      company: "Alpha Hive AI",
-      role: "MERN Stack Developer",
-      duration: "July 2025 – Present",
+      company: "Freelance",
+      role: "Full-Stack Developer",
+      duration: "JUN 2026 – PRESENT",
+      location: "Remote",
       achievements: [
-        "Built and shipped backend systems for multiple client products across web and mobile platforms:",
+        "DevNDev — Built a multi-page agency website in Next.js: fully responsive, with service, team, and contact pages and interactive UI including an animated technology marquee and a testimonial carousel.",
+        "Morphix — Developed a character customizer (Next.js, TypeScript) from a provided design, with an interactive preview, character/pose/background switching, and a high-resolution PNG export pipeline (transparent backgrounds, 2048×2048)."
+      ]
+    },
+    {
+      company: "Alpha Hive AI",
+      role: "Full-Stack Developer",
+      duration: "JUL 2025 – MAY 2026",
+      achievements: [
+        "Shipped four production SaaS products end-to-end, owning backend architecture from API design to deployment:",
 "99min — Architected the full backend for a task marketplace from scratch, implementing a layered service structure, JWT-based auth with OTP and RBAC, real-time Socket.IO chat and notifications, cron-based task expiry, and end-to-end Stripe subscription billing with webhook signature verification.",
 "Unflappable — Built the core authentication system (Email OTP + Apple Sign In) and mission engine powering daily missions and streak logic; integrated Firebase FCM for timezone-aware push notifications and Apple IAP for in-app purchase management.",
 "Rent AI — Developed a full-stack property management platform for landlords covering tenant tracking and rent scheduling, improving booking efficiency by 40%.",
@@ -585,7 +595,7 @@ export function Experience() {
     {
       company: "Octathorn Technologies",
       role: "MERN Stack Intern",
-      duration: "Jul 2024 – Oct 2024",
+      duration: "JUL 2024 – AUG 2024",
       achievements: [
         "Built a real-time chat app with WebSockets for instant messaging and file sharing.",
         "Created a video chat app using WebRTC for live peer-to-peer communication."
@@ -594,7 +604,7 @@ export function Experience() {
     {
       company: "Echo Technologies",
       role: "WordPress Developer",
-      duration: "Aug 2023 – April 2024",
+      duration: "FEB 2023 – JUL 2023",
       achievements: [
         "Developed and maintained WordPress websites with custom themes and plugins for enhanced functionality and UX."
       ]
@@ -629,6 +639,7 @@ export function Experience() {
               <span className="text-[10px] uppercase tracking-widest font-bold opacity-30 dark:text-white/40 mb-2">{exp.duration}</span>
               <h3 className="text-xl font-medium dark:text-white">{exp.company}</h3>
               <p className="text-xs uppercase tracking-widest opacity-40 mt-1 dark:text-white/60">{exp.role}</p>
+              {exp.location && <p className="text-[10px] uppercase tracking-widest opacity-30 mt-1 dark:text-white/40">{exp.location}</p>}
             </div>
             <div className="md:col-span-2">
               <ul className="space-y-4">
@@ -639,6 +650,67 @@ export function Experience() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) {
+  return (
+    <section id="testimonials" className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="flex flex-col items-center text-center mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl"
+        >
+          <div className="uppercase text-[10px] font-bold tracking-[0.2em] opacity-40 mb-8 dark:text-white">Testimonials</div>
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-6 dark:text-white">Client<br/><span className="italic font-display dark:text-white">Words</span></h2>
+        </motion.div>
+      </div>
+
+      <div className="w-full max-w-4xl mx-auto flex flex-col gap-12">
+        {testimonials.map((t, i) => (
+          <motion.div
+            key={t.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            className="border-t border-black/5 dark:border-white/5 pt-12 first:border-0 first:pt-0 flex flex-col items-center text-center"
+          >
+            <p className="text-lg md:text-2xl font-light leading-relaxed text-gray-600 dark:text-gray-300 max-w-3xl mb-10">
+              &ldquo;{t.quote}&rdquo;
+            </p>
+            <div className="flex flex-col items-center gap-1.5">
+              {t.link ? (
+                <a
+                  href={t.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-medium dark:text-white lg:hover:opacity-60 transition-opacity"
+                >
+                  {t.name}
+                </a>
+              ) : (
+                <span className="text-base font-medium dark:text-white">{t.name}</span>
+              )}
+              <span className="text-xs uppercase tracking-widest opacity-40 dark:text-white/60 max-w-xs">{t.title}</span>
+              <span className="text-[10px] uppercase tracking-widest opacity-30 dark:text-white/40 mt-1">{t.context}</span>
+              {t.link && (
+                <a
+                  href={t.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] uppercase tracking-widest font-bold opacity-40 lg:hover:opacity-100 transition-opacity mt-3 dark:text-white flex items-center gap-1.5"
+                >
+                  View Project <ArrowUpRight size={12} />
+                </a>
+              )}
             </div>
           </motion.div>
         ))}
@@ -671,9 +743,9 @@ export function About() {
             className="flex flex-col gap-16"
           >
             <p className="text-2xl md:text-4xl font-light leading-relaxed max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
-              I am a full-stack developer focused on building 
-              <span className="text-black dark:text-white italic"> practical, high-impact</span> solutions. My work lives at 
-              the intersection of business logic and scalable software architecture.
+              I'm a full-stack engineer who builds production SaaS and MVPs
+              <span className="text-black dark:text-white italic"> end-to-end</span> from backend architecture
+              and API design to integrations and deployment.
             </p>
             
             <div className="pt-20 border-t border-black/10 dark:border-white/10 flex flex-col items-center justify-center">
@@ -686,8 +758,9 @@ export function About() {
               >
                 <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4 opacity-40 dark:text-white/60">Background</h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                  With 1+ year of hands-on experience in production environments, I have delivered features end-to-end, 
-                  collaborating with cross-functional teams to translate complex needs into maintainable code.
+                  Over the past year at an AI-first startup, I shipped four production SaaS products used by real people,
+                  owning backend architecture from API design through to deployment. I turn complex business logic into
+                  clean, maintainable systems and work closely with mobile and frontend teams to ship.
                 </p>
               </motion.div>
             </div>
@@ -747,7 +820,7 @@ export function Contact() {
             onClick={() => setIsFormOpen(true)}
             whileHover={window.innerWidth > 1024 ? { scale: 1.05 } : {}}
             whileTap={{ scale: 0.95 }}
-            className="inline-block px-12 py-5 bg-[#111111] dark:bg-white text-white dark:text-black text-[10px] font-bold tracking-[0.3em] uppercase rounded-full shadow-2xl lg:hover:shadow-black/20 dark:lg:hover:shadow-white/20 transition-all cursor-none"
+            className="inline-block px-12 py-5 bg-[#111111] dark:bg-white text-white dark:text-black text-[10px] font-bold tracking-[0.3em] uppercase rounded-full shadow-2xl lg:hover:shadow-black/20 dark:lg:hover:shadow-white/20 transition-all"
           >
             Contact Me
           </motion.button>

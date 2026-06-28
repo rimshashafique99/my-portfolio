@@ -14,7 +14,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[#FDFDFC] text-[#111111] dark:bg-[#0A0A0A] dark:text-[#EEEEEE] selection:bg-[#111111] selection:text-white antialiased lg:cursor-none;
+    @apply bg-[#FDFDFC] text-[#111111] dark:bg-[#0A0A0A] dark:text-[#EEEEEE] selection:bg-[#111111] selection:text-white antialiased;
   }
 
   *, *::before, *::after {

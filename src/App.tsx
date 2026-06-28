@@ -4,9 +4,8 @@
  */
 
 import { motion, useScroll, useSpring } from 'motion/react';
-import { Navbar, Hero, ProjectCard, Stack, Capabilities, About, Experience, Contact, Footer } from './components/Portfolio';
-import { PROJECTS, TECHNOLOGIES } from './constants';
-import { CustomCursor } from './components/CustomCursor';
+import { Navbar, Hero, ProjectCard, Stack, Capabilities, About, Experience, Testimonials, Contact, Footer } from './components/Portfolio';
+import { PROJECTS, TECHNOLOGIES, TESTIMONIALS } from './constants';
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -18,7 +17,6 @@ export default function App() {
 
   return (
     <main className="relative selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black pt-24 lg:pt-0 bg-[#FDFDFC] dark:bg-[#0A0A0A] text-[#111111] dark:text-[#EEEEEE] min-h-screen">
-      <CustomCursor />
       {/* Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-[2px] bg-black dark:bg-white origin-left z-[60]" 
@@ -61,6 +59,8 @@ export default function App() {
       <Capabilities />
 
       <Experience />
+
+      <Testimonials testimonials={TESTIMONIALS} />
 
       <About />
       

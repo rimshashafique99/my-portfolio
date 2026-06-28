@@ -16,3 +16,11 @@ export interface Technology {
   category: string;
   icon?: string;
 }
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  title: string;
+  context: string;
+  link?: string;
+}
