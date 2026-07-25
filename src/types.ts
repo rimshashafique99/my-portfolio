@@ -8,6 +8,7 @@ export interface Project {
   imagePosition?: string;
   liveUrl?: string;
   repoUrl?: string;
+  backendRepoUrl?: string; // add this field to your Project type
   category: 'Web' | 'Mobile' | 'Backend' | 'AI' | 'DevOps' | 'Full Stack' | 'E-Commerce';
 }
 
